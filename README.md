@@ -2,6 +2,8 @@
 
 ### SQL 문의 종류
 
+---
+
 <table>
   <tr> <th/>종류 <th/>구문 <th/>설명 </tr>
   <tr>
@@ -60,6 +62,8 @@ GRANT RL_BASE TO NEW_USER;
 
 ### NULL 관련 함수
 
+---
+
 **NVL** | NVL 함수는 A가 null이 아니면 A, null이면 B를 반환한다.
 
 ```
@@ -70,4 +74,43 @@ NVL(A,B)
 
 ```
 NULLIF(A,B)
+```
+
+<br>
+
+### 조건 우선순위
+
+---
+
+조건은 우선순위에 따라 평가된다.  
+| 우선순위 | 조건 |
+| :--- | :--- |
+| 1 | 연산자 |
+| 2 | 비교 조건(=, <>, >, <, >=, <=>) |
+| 3 | IN 조건, LIKE 조건, BETWEEN 조건, NULL 조건|
+| 4 | 논리 조건(NOT) |
+| 5 | 논리 조건(AND) |
+| 6 | 논리 조건(OR) |
+<br>
+
+> 주의 | AND와 OR 조건
+
+```
+SELECT
+    SUM(COL_C) AS A1
+FROM TA
+WHERE COL_A >= 10
+    OR COL_B IN (1, 2)
+    AND COL_C NOT BETWEEN 500 AND 600;
+```
+
+위 코드는 조건 우선순위에 따라 아래와 같이 순서가 정해진다.
+
+```
+SELECT
+    SUM(COL_C) AS A1
+FROM TA
+WHERE COL_A >= 10
+    OR ( COL_B IN (1, 2)
+    AND COL_C NOT BETWEEN 500 AND 600 );
 ```
