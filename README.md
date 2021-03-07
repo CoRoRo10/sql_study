@@ -62,6 +62,8 @@ GRANT RL_BASE TO NEW_USER;
 
 ### query 순서
 
+---
+
 > 문법 작성 순서
 
 1. SELECT
