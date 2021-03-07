@@ -60,6 +60,39 @@ GRANT RL_BASE TO NEW_USER;
 
 <br>
 
+### query 순서
+
+> 문법 작성 순서
+
+1. SELECT
+2. FROM
+3. WHERE
+4. GROUP BY
+5. HAVING
+6. ORDER BY
+
+<br>
+
+> 실행 순서
+
+1. FROM
+2. ON
+3. JOIN
+4. WHERE
+5. GROUP BY
+6. CUBE | ROLLUP
+7. HAVING
+8. SELECT
+9. DISTINCT
+10. ORDER BY
+11. TOP
+
+```
+자주 사용 => FROM - WHERE - GROUP BY - HAVING - SELECT - ORDER BY
+```
+
+<br>
+
 ### NULL 관련 함수
 
 ---
