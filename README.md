@@ -60,7 +60,7 @@ GRANT RL_BASE TO NEW_USER;
 
 <br>
 
-### query 순서
+### QUERY 순서
 
 ---
 
