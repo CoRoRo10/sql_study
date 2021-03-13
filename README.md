@@ -150,6 +150,8 @@ WHERE COL_A >= 10
     AND COL_C NOT BETWEEN 500 AND 600 );
 ```
 
+<br>
+
 ### 그룹 함수
 
 ---
