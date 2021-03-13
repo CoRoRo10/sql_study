@@ -149,3 +149,49 @@ WHERE COL_A >= 10
     OR ( COL_B IN (1, 2)
     AND COL_C NOT BETWEEN 500 AND 600 );
 ```
+
+### 그룹 함수
+
+---
+
+GROUP BY 절에 사용하는 함수는 전체 합계와 동시에 그룹 별 합계(소그룹의 집계)를 구할 수 있다.
+
+#### 1) ROLLUP
+
+- GROUP BY ROLLUP(col1)
+  <br>전체 합계, 컬럼 col1 소계
+  <br><br>
+- GROUP BY ROLLUP(col1, col2)
+  <br>전체 합계, 컬럼 col1 소계, 컬럼 col1, col2 조합 소계
+  <br><br>
+- GROUP BY ROLLUP(col1,col2,col3)
+  <br>전체 합계, 컬럼 col1 소계, 컬럼 col1, col2 조합 소계, 컬럼 col1, col2, col3 조합 소계
+  <br><br>
+- GROUP BY ROLLUP(col1, (col2,col3))
+  <br>전체 합계, 컬럼 col1 소계, 컬럼 col1, (col2, col3) 조합 소계
+
+#### 2) CUBE
+
+- GROUP BY CUBE(col1)
+  <br>전체 합계, 컬럼 col1 소계
+  <br><br>
+- GROUP BY CUBE(col1, col2)
+  <br>전체 합계, 컬럼 col1 소계, 컬럼 col2 소계, 컬럼 col1, col2 조합 소계
+  <br><br>
+  > 가능한 모든 조합의 소계 및 합계를 생성하기 때문에 시스템에 무리가 갈 수 있다.
+
+#### 3) GROUPING SETS
+
+- GROUP BY GROUPING SETS(col1)
+  <br>컬럼 col1 소계
+  <br><br>
+- GROUP BY GROUPING SETS(col1, col2)
+  <br>컬럼 col1 소계, 컬럼 col2 소계
+  <br><br>
+
+<br><br>
+
+> 참고
+
+- youtube 쏭즈캠퍼스 https://www.youtube.com/channel/UC7Ax79mT-s1qErBZnH0Kk-A
+- 책 국가공인 SQLD 자격검정 핵심노트 (디비안)
